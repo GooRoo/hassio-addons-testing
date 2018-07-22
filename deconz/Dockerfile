@@ -36,13 +36,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Add WiringPi, install WiringPi
-ADD https://archive.raspberrypi.org/debian/pool/main/w/wiringpi/wiringpi_${WIRINGPI_VERSION}_armhf.deb /wiringpi.deb
-RUN dpkg -i /wiringpi.deb && \
+RUN wget -O wiringpi.deb https://archive.raspberrypi.org/debian/pool/main/w/wiringpi/wiringpi_${WIRINGPI_VERSION}_armhf.deb && \
+    dpkg -i /wiringpi.deb && \
     rm -f /wiringpi.deb
 
 # Add deCONZ, install deCONZ, make OTAU dir
-ADD https://www.dresden-elektronik.de/rpi/deconz/beta/deconz-${DECONZ_VERSION}-qt5.deb /deconz.deb
-RUN dpkg -i /deconz.deb && \
+RUN wget -O deconz.deb https://www.dresden-elektronik.de/rpi/deconz/beta/deconz-${DECONZ_VERSION}-qt5.deb && \
+    dpkg -i /deconz.deb && \
     rm -f /deconz.deb && \
     mkdir /root/otau && \
     chown root:root /usr/bin/deCONZ*
