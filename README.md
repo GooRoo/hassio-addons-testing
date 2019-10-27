@@ -1,2 +1,2 @@
 # My testing Hass.IO add-on repository
-Do not use, may be unstable!
+May be highly unstable, use at your own risk (or better don't)!
